@@ -18,6 +18,7 @@ app.post('/emails', async (req , res)=>{
     res.json({queued: true, job});
 })
 
+
 app.get('/emails/process-one', async (req , res)=>{
     const rawJob = await redis.rpop(QUEUE_KEY);
     if (!rawJob){
